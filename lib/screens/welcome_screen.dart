@@ -29,13 +29,23 @@ class WelcomeScreen extends StatelessWidget {
                 fontFamily: 'Jersey25',
               ),
             ),
-            const SizedBox(height: 40),
-            ElevatedButton(
+            const SizedBox(height: 50),
+            SizedBox (
+              width: 150,
+              height: 80,
+            child: ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/');
               },
-              child: const Text('Continue'),
-            ),
+              child: const Text('Start',
+              style: TextStyle(
+                fontSize: 30,
+                color: Color.fromARGB(170, 0, 118, 81),
+                fontFamily: 'Jersey25',
+                    ),
+                  ),
+                ),
+              ),
             const SizedBox(height: 40),
             Image.asset(
               'assets/avatars/buddy.png', // Update with your image path
