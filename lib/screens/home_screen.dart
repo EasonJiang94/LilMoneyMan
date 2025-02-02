@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import '../screens/saving_plan_screen.dart'; // to access currentSavingPlanData
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  HomePage createState() => HomePage();
+}
+class HomePage extends State<HomeScreen>{
+  HomePage({dynamic key});
 
   Widget _buildDashboard() {
     if (currentSavingPlanData == null) {
@@ -56,7 +59,7 @@ class HomeScreen extends StatelessWidget {
       child: Text(label),
     );
   }
-
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +99,24 @@ class HomeScreen extends StatelessWidget {
                 _buildMenuButton(context, 'Link PNC Account', '/pnc'),
                 _buildMenuButton(context, 'Setup Saving Plan', '/savingPlan'),
               ],
+            ),
+            BottomNavigationBar(
+              items: const [
+                BottomNavigationBarItem(
+                  label: "Home",
+                  icon: Icon(Icons.home,
+                  color: Colors.green)),
+                BottomNavigationBarItem(
+                  label: "My Savings",
+                  icon: Icon(Icons.wallet,
+                  color: Colors.green)),
+              ],
+              currentIndex: 0,
+              onTap: (int index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
             ),
           ],
         ),
