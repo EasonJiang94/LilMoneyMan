@@ -6,36 +6,40 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildDashboard() {
     if (currentSavingPlanData == null) {
-      return Text('No saving plan set up yet.');
+      return const Center(child: Text('No saving plan set up yet.'));
     }
     final plan = currentSavingPlanData!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Saving Plan Overview',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-        SizedBox(height: 10),
+        const Text(
+          'Saving Plan Overview',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 10),
         Card(
           child: ListTile(
-            leading: Icon(Icons.account_balance_wallet),
-            title: Text('Remaining Balance'),
+            leading: const Icon(Icons.account_balance_wallet),
+            title: const Text('Remaining Balance'),
             subtitle: Text('\$${plan.remainingBalance.toStringAsFixed(2)}'),
           ),
         ),
         Card(
           child: ListTile(
-            leading: Icon(Icons.monetization_on),
-            title: Text('Accumulated Interest'),
+            leading: const Icon(Icons.monetization_on),
+            title: const Text('Accumulated Interest'),
             subtitle: Text('\$${plan.accumulatedInterest.toStringAsFixed(2)}'),
           ),
         ),
-        SizedBox(height: 10),
-        Text('Usage Withdrawals:',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        const SizedBox(height: 10),
+        const Text(
+          'Usage Withdrawals:',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         ...plan.usageEntries.map((usage) {
           return Card(
             child: ListTile(
-              leading: Icon(Icons.money_off),
+              leading: const Icon(Icons.money_off),
               title: Text(usage.label),
               subtitle:
                   Text('Total Withdrawn: \$${usage.amount.toStringAsFixed(2)}'),
@@ -48,9 +52,7 @@ class HomeScreen extends StatelessWidget {
 
   Widget _buildMenuButton(BuildContext context, String label, String route) {
     return ElevatedButton(
-      onPressed: () {
-        Navigator.pushNamed(context, route);
-      },
+      onPressed: () => Navigator.pushNamed(context, route),
       child: Text(label),
     );
   }
@@ -59,26 +61,43 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bank Dashboard'),
+        title: const Text('Bank Dashboard'),
         actions: [
           IconButton(
-            icon: Icon(Icons.chat),
+            icon: const Icon(Icons.chat),
             onPressed: () => Navigator.pushNamed(context, '/chat'),
+          ),
+          GestureDetector(
+            onTap: () => Navigator.pushNamed(context, '/avatar'),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: CircleAvatar(
+                backgroundImage:
+                    const AssetImage('assets/avatars/avatar_level_3.png'),
+              ),
+            ),
           ),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              _buildMenuButton(context, 'Link PNC Account', '/pnc'),
-              _buildMenuButton(context, 'Setup Saving Plan', '/savingPlan'),
-              _buildMenuButton(context, 'My Avatar', '/avatar'),
-              SizedBox(height: 20),
-              _buildDashboard(),
-            ],
-          ),
+        child: Column(
+          children: [
+            // Dashboard content takes up available space.
+            Expanded(
+              child: SingleChildScrollView(
+                child: _buildDashboard(),
+              ),
+            ),
+            // Bottom buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _buildMenuButton(context, 'Link PNC Account', '/pnc'),
+                _buildMenuButton(context, 'Setup Saving Plan', '/savingPlan'),
+              ],
+            ),
+          ],
         ),
       ),
     );
