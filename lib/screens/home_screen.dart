@@ -48,7 +48,7 @@ class HomePage extends State<HomeScreen>{
                   Text('Total Withdrawn: \$${usage.amount.toStringAsFixed(2)}'),
             ),
           );
-        }).toList(),
+        }),
       ],
     );
   }
@@ -64,6 +64,7 @@ class HomePage extends State<HomeScreen>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Bank Dashboard'),
         actions: [
           IconButton(
@@ -86,19 +87,32 @@ class HomePage extends State<HomeScreen>{
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Dashboard content takes up available space.
             Expanded(
               child: SingleChildScrollView(
                 child: _buildDashboard(),
               ),
             ),
-            // Bottom buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildMenuButton(context, 'Link PNC Account', '/pnc'),
-                _buildMenuButton(context, 'Setup Saving Plan', '/savingPlan'),
+              children: [_buildMenuButton(context, 'Link PNC Account', '/pnc')],
+            ),
+            BottomNavigationBar(
+              items: const [
+                BottomNavigationBarItem(
+                    label: "Home", icon: Icon(Icons.home, color: Colors.green)),
+                BottomNavigationBarItem(
+                    label: "My Saving Plan",
+                    icon: Icon(Icons.wallet, color: Colors.green)),
               ],
+              currentIndex: 0,
+              onTap: (int index) {
+                if (index == 0) {
+                  Navigator.pushNamed(context, '/HomeScreen');
+                }
+                if (index == 1) {
+                  Navigator.pushNamed(context, '/savingPlan');
+                }
+              },
             ),
             BottomNavigationBar(
               items: const [
