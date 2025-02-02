@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../screens/saving_plan_screen.dart'; // to access currentSavingPlanData
 
-class HomeScreen extends StatefulWidget {
+class MainPage extends StatefulWidget {
   HomePage createState() => HomePage();
 }
 class HomePage extends State<MainPage>{
-  const HomeScreen({super.key});
+  HomePage({dynamic key});
 
   Widget _buildDashboard() {
     if (currentSavingPlanData == null) {
