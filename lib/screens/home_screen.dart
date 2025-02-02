@@ -105,11 +105,11 @@ class HomePage extends State<HomeScreen>{
                 BottomNavigationBarItem(
                   label: "Home",
                   icon: Icon(Icons.home,
-                  color: Colors.green)),
+                  color: Color.fromRGBO(0, 118, 81, 0.667),)),
                 BottomNavigationBarItem(
                   label: "My Savings",
                   icon: Icon(Icons.wallet,
-                  color: Colors.green)),
+                  color: Color.fromRGBO(0, 118, 81, 0.667),)),
               ],
               currentIndex: 0,
               onTap: (int index) {

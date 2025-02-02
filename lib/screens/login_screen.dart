@@ -68,14 +68,26 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 32),
               ElevatedButton(
                 onPressed: _handleEmailSignIn,
-                child: const Text('Sign in'),
+                child: const Text('Sign in',
+                style: TextStyle(
+                fontSize: 35,
+                color: Color.fromRGBO(0, 118, 81, 0.667),
+                fontFamily: 'Jersey25',
+                    ),
+                  ),
               ),
               const SizedBox(height: 16),
               const Text('or'),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: _handleGoogleSignIn,
-                child: const Text('Sign in with Google'),
+                child: const Text('Sign in with Google',
+                style: TextStyle(
+                fontSize: 35,
+                color: Color.fromRGBO(0, 118, 81, 0.667),
+                fontFamily: 'Jersey25',
+                    ),
+                ),
               ),
             ],
           ),
