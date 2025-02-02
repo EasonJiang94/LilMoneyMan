@@ -6,7 +6,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF58025),
+      backgroundColor: Color.fromARGB(255, 5, 164, 119),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -15,7 +15,7 @@ class WelcomeScreen extends StatelessWidget {
               'Lil Money Man',
               style: TextStyle(
                 fontSize: 64,
-                color: Color(0xFF0069AA),
+                color: Color.fromARGB(255, 255, 255, 255),
                 fontFamily: 'Jersey25',
               ),
             ),
@@ -25,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 40,
-                color: Color(0xFF0069AA),
+                color: Color.fromARGB(255, 255, 255, 255),
                 fontFamily: 'Jersey25',
               ),
             ),
