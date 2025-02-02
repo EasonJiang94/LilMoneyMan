@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       backgroundColor: Color.fromARGB(255, 5, 164, 119),
       body: Center(
         child: Column(
@@ -62,5 +61,4 @@ class WelcomeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
 }

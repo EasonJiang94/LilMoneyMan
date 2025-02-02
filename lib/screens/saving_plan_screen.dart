@@ -17,10 +17,30 @@ class SavingPlanData {
       usageEntries.fold(0, (sum, entry) => sum + entry.amount);
   double get remainingBalance => yearlyDeposit - totalUsage;
   double get accumulatedInterest {
-    // Using a 4% annual rate, calculated monthly.
-    final months = planPeriod == 'Yearly' ? 12 : 6;
-    final monthlyRate = 0.04 / 12;
-    return remainingBalance * monthlyRate * months;
+      // 4% annual interest rate, compounded monthly (0.3274% per month)
+      const double monthlyRate = 0.003274; // 0.3274% = 4% / 12
+      //double balance = yearlyDeposit - totalUsage; // 一开始存入存款 = yearlyDeposit - totalUsage
+      double balance = yearlyDeposit - totalUsage;
+      double interest = 0.0;
+
+      // 1️⃣ **开始 11 个月的循环，每月计算利息并按周期取出**
+      for (int month = 1; month < 12; month++) {
+          // 计算当前余额的利息
+          interest += balance * monthlyRate;
+
+          // 按周期取出资金
+          for (var entry in usageEntries) {
+              if ((entry.period == 'Monthly') || 
+                  (entry.period == '3-Monthly' && month % 3 == 0) ||
+                  (entry.period == '6-Monthly' && month % 6 == 0)) {
+                  balance -= entry.amount; // 取出资金
+              }
+          }
+
+          if (balance < 0) balance = 0;
+      }
+
+      return interest;
   }
 }
 
@@ -32,9 +52,10 @@ class UsageEntry {
 }
 
 class SavingPlanScreen extends StatefulWidget {
-  const SavingPlanScreen({Key? key}) : super(key: key);
+  const SavingPlanScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SavingPlanScreenState createState() => _SavingPlanScreenState();
 }
 

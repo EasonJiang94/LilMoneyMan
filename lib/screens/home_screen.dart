@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../screens/saving_plan_screen.dart'; // to access currentSavingPlanData
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
   HomePage createState() => HomePage();
 }
 
@@ -79,7 +82,7 @@ class HomePage extends State<HomeScreen> {
               padding: const EdgeInsets.only(right: 16.0),
               child: CircleAvatar(
                 backgroundImage:
-                    const AssetImage('assets/avatars/avatar_level_3.png'),
+                    const AssetImage('assets/avatars/avatar2.png'),
               ),
             ),
           ),

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tmp/services/fake_google_sign_in.dart'; // Update with your package name if needed
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginScreenState createState() => _LoginScreenState();
 }
 
@@ -17,6 +18,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _handleGoogleSignIn() async {
     try {
       await _googleSignIn.signIn();
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context, '/home');
     } catch (error) {
       print('Failed to sign in with Google: $error');
