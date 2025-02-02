@@ -4,7 +4,8 @@ import '../screens/saving_plan_screen.dart'; // to access currentSavingPlanData
 class HomeScreen extends StatefulWidget {
   HomePage createState() => HomePage();
 }
-class HomePage extends State<HomeScreen>{
+
+class HomePage extends State<HomeScreen> {
   HomePage({dynamic key});
 
   Widget _buildDashboard() {
@@ -48,7 +49,7 @@ class HomePage extends State<HomeScreen>{
                   Text('Total Withdrawn: \$${usage.amount.toStringAsFixed(2)}'),
             ),
           );
-        }).toList(),
+        }),
       ],
     );
   }
@@ -59,11 +60,13 @@ class HomePage extends State<HomeScreen>{
       child: Text(label),
     );
   }
+
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text('Bank Dashboard'),
         actions: [
           IconButton(
@@ -86,19 +89,14 @@ class HomePage extends State<HomeScreen>{
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            // Dashboard content takes up available space.
             Expanded(
               child: SingleChildScrollView(
                 child: _buildDashboard(),
               ),
             ),
-            // Bottom buttons
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _buildMenuButton(context, 'Link PNC Account', '/pnc'),
-                _buildMenuButton(context, 'Setup Saving Plan', '/savingPlan'),
-              ],
+              children: [_buildMenuButton(context, 'Link PNC Account', '/pnc')],
             ),
             BottomNavigationBar(
               items: const [
@@ -113,9 +111,12 @@ class HomePage extends State<HomeScreen>{
               ],
               currentIndex: 0,
               onTap: (int index) {
-                setState(() {
-                  currentIndex = index;
-                });
+                if (index == 0) {
+                  Navigator.pushNamed(context, '/HomeScreen');
+                }
+                if (index == 1) {
+                  Navigator.pushNamed(context, '/savingPlan');
+                }
               },
             ),
           ],
