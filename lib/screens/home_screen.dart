@@ -4,7 +4,8 @@ import '../screens/saving_plan_screen.dart'; // to access currentSavingPlanData
 class HomeScreen extends StatefulWidget {
   HomePage createState() => HomePage();
 }
-class HomePage extends State<HomeScreen>{
+
+class HomePage extends State<HomeScreen> {
   HomePage({dynamic key});
 
   Widget _buildDashboard() {
@@ -59,6 +60,7 @@ class HomePage extends State<HomeScreen>{
       child: Text(label),
     );
   }
+
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
@@ -112,24 +114,6 @@ class HomePage extends State<HomeScreen>{
                 if (index == 1) {
                   Navigator.pushNamed(context, '/savingPlan');
                 }
-              },
-            ),
-            BottomNavigationBar(
-              items: const [
-                BottomNavigationBarItem(
-                  label: "Home",
-                  icon: Icon(Icons.home,
-                  color: Colors.green)),
-                BottomNavigationBarItem(
-                  label: "My Savings",
-                  icon: Icon(Icons.wallet,
-                  color: Colors.green)),
-              ],
-              currentIndex: 0,
-              onTap: (int index) {
-                setState(() {
-                  currentIndex = index;
-                });
               },
             ),
           ],
