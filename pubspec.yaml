@@ -61,6 +61,9 @@ flutter:
   # assets:
   assets:
     - assets/avatars/avatar_level_3.png
+    - assets/avatars/avatar1.png
+    - assets/avatars/avatar2.png
+    - assets/avatars/buddy.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
@@ -75,6 +78,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Jersey25
+      fonts:
+        - asset: assets/fonts/Jersey25-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

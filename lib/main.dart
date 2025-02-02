@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/welcome_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/pnc_account_screen.dart';
@@ -20,9 +21,10 @@ class BankFinancialApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      initialRoute: '/welcome',
       routes: {
         '/': (context) => LoginScreen(),
+        '/welcome': (context) => const WelcomeScreen(),
         '/home': (context) => HomeScreen(),
         '/pnc': (context) => PNCAccountScreen(),
         '/savingPlan': (context) => SavingPlanScreen(),
