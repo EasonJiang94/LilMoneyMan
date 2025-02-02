@@ -19,34 +19,41 @@ class WelcomeScreen extends StatelessWidget {
                 fontFamily: 'Jersey25',
               ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Create Account\nor\nLog In',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 40,
-                color: Color.fromARGB(255, 255, 255, 255),
-                fontFamily: 'Jersey25',
-              ),
-            ),
             const SizedBox(height: 50),
-            SizedBox (
-              width: 150,
-              height: 80,
+             SizedBox (
+              width: 200,
+              height: 100,
             child: ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/');
               },
-              child: const Text('Start',
+              child: const Text('Create\nAccount',
               style: TextStyle(
-                fontSize: 30,
-                color: Color.fromARGB(170, 0, 118, 81),
+                fontSize: 35,
+                color: Color.fromRGBO(0, 118, 81, 0.667),
                 fontFamily: 'Jersey25',
                     ),
                   ),
                 ),
               ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 50),
+            SizedBox (
+              width: 200,
+              height: 100,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/');
+              },
+              child: const Text('Log In',
+              style: TextStyle(
+                fontSize: 35,
+                color: Color.fromRGBO(0, 118, 81, 0.667),
+                fontFamily: 'Jersey25',
+                    ),
+                  ),
+                ),
+              ),
+            const SizedBox(height: 50),
             Image.asset(
               'assets/avatars/buddy.png', // Update with your image path
               width: 450,
