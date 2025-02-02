@@ -15,6 +15,7 @@ class BankFinancialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Bank Financial Suggestion App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
