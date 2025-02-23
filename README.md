@@ -1,16 +1,18 @@
-# tmp
+# LilMoneyMan
 
-A new Flutter project.
+It's a flutter project for SheInnovates 2025 Hackathon and got the 3rd Pirze of PNC track. 
 
-## Getting Started
+## Run
+### 1. Install the project
+```shell=1
+git clone https://github.com/EasonJiang94/LilMoneyMan.git
+flutter pub get
+```
+### 2. Select your virtual device with flutter
+You can try to follow the guide for Android Emulator : [Link]([url](https://www.geeksforgeeks.org/how-to-run-a-flutter-app-on-android-emulator/))
 
-This project is a starting point for a Flutter application.
+## To-do
+1. Login feature
+2. Score counting system to make it more gamified!
+3. Change the LilMoneyMan Avatar according to the score.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
