@@ -11,6 +11,12 @@ flutter pub get
 ### 2. Select your virtual device with flutter
 You can try to follow the guide for Android Emulator : [Link]([url](https://www.geeksforgeeks.org/how-to-run-a-flutter-app-on-android-emulator/))
 
+### 3. Run it up
+```shell=1
+flutter run
+```
+After that, go to your Android Emulator and you will see the APP is installed and running. 
+
 ## To-do
 1. Login feature
 2. Score counting system to make it more gamified!
